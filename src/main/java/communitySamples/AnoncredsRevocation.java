@@ -1,19 +1,27 @@
 package communitySamples;
 
-import org.hyperledger.indy.sdk.anoncreds.*;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.issuerCreateAndStoreCredentialDef;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.issuerCreateAndStoreRevocReg;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.issuerCreateCredentialOffer;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.issuerCreateSchema;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.proverCreateCredentialReq;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.proverCreateMasterSecret;
+import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.proverGetCredentialsForProofReq;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static utils.EnvironmentUtils.getIndyHomePath;
+import static utils.PoolUtils.PROTOCOL_VERSION;
+
 import org.hyperledger.indy.sdk.anoncreds.Anoncreds;
+import org.hyperledger.indy.sdk.anoncreds.AnoncredsResults;
 import org.hyperledger.indy.sdk.blob_storage.BlobStorageReader;
 import org.hyperledger.indy.sdk.blob_storage.BlobStorageWriter;
 import org.hyperledger.indy.sdk.pool.Pool;
 import org.hyperledger.indy.sdk.wallet.Wallet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import utils.PoolUtils;
 
-import static org.hyperledger.indy.sdk.anoncreds.Anoncreds.*;
-import static org.junit.Assert.*;
-import static utils.EnvironmentUtils.getIndyHomePath;
-import static utils.PoolUtils.PROTOCOL_VERSION;
+import utils.PoolUtils;
 
 
 class AnoncredsRevocation {
