@@ -46,6 +46,7 @@ public class PoolUtils {
 		PoolJSONParameters.CreatePoolLedgerConfigJSONParameter createPoolLedgerConfigJSONParameter
 				= new PoolJSONParameters.CreatePoolLedgerConfigJSONParameter(genesisTxnFile.getAbsolutePath());
 		Pool.createPoolLedgerConfig(DEFAULT_POOL_NAME, createPoolLedgerConfigJSONParameter.toJson()).get();
+		System.out.println("Genesis txn file : "+ genesisTxnFile.getAbsolutePath());
 		return DEFAULT_POOL_NAME;
 	}
 }
